@@ -9,5 +9,16 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
-  }
+  },
+  "name": "apiloja",
+  "version": "1.0.0",
+  "description": "API Loja",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
