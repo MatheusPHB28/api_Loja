@@ -1,17 +1,17 @@
 const express = require('express');
-const  routers = express.Router() 
-const lojaController = require('../controllers/lojaController');
+const  router = express.Router() 
+const transactionsController = require('../controllers/lojaController');
 
-router.get('/', lojaController.getAllproducts);
+router.get('/', transactionsController.getAllproducts);
 
-router.post('/', lojaController.addproducts);
+router.post('/', transactionsController.addproducts);
 
-router.put('/':id, lojaController.updateproductsPut);
+router.put('/:id', transactionsController.updateproductsPut);
 
-router.patch('/':id, lojaController.updateproductsPatch);
+router.patch('/:id', transactionsController.updateproductsPatch);
 
-router.delete('/':id, lojaController.deleteproducts );
+router.delete('/:id', transactionsController.deleteproducts );
 
 
 
-module.exports=router
+module.exports = router;

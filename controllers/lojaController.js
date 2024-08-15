@@ -90,10 +90,10 @@ const deleteproducts = (req, res) => {
                 res.status(500).send('Erro ao deletar transação');
                 return;
             }
-            res.status(201).send('Taansação deletada com sucesso')
+            res.status(201).send('Conteudo deletado com sucesso')
         }
 
-    )
+    );
 }
 
 
