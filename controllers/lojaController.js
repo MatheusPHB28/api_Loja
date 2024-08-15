@@ -15,10 +15,10 @@ const getAllProducts = (req, res) => {
 
 
 const addProducts = (req, resu) => {
-    const{date, amount, description, category, account, user_id} = req.body;
+    const{id, name,description,category , price, stock, expire_date} = req.body;
     db.query (
-        'INSERT INTO products (date, amount, description, category, account, user_id)Values(?,?,?,?,?,?,)',
-    [date,amount, description, category, account, user_id], 
+        'INSERT INTO products ( name,description,category , price, stock, expire_date)Values(?,?,?,?,?,?,)',
+    [name,description,category , price, stock, expire_date], 
     (err, res) => {
         if(err) {
             console.error('Erro ao adcionar transação', err);
@@ -32,16 +32,17 @@ const addProducts = (req, resu) => {
     
 };
 
-const updateproductsPut = (req, res) => {
+const updateProductsPut = (req, res) => {
     const{id} = req.params;
-    const{ date, amount, description, category, account, user_id}
+    const{ name, description, category, price, stock, expire_date}
 
-}const updateprodctsPut = (req, res) => {
+}
+const updateProdctsPut = (req, res) => {
     const {id} = req.params;
-    const {date, amount, description, category, account, user_id} =req.body;
+    const {name,description,category , price, stock, expire_date} =req.body
     db.query(
-        'UPDATE transactions SET date=?, amount=?, description=?, category=?, account=?, user_id=? WHERE id=?',
-        [date, amount, description, category, account, user_id,id],
+        'UPDATE transactions SET id=? name=?, description=?, price=?, stock=?, expire_date=?,',
+        [name,description,category , price, stock, expire_date,id],
         (err,results) => {
             if(err) {
                 console.error('Erroao adcionar transação', err);
@@ -54,7 +55,7 @@ const updateproductsPut = (req, res) => {
     )
 };
 
-const updateproductsPatch = (req, res) => {
+const updateProductsPatch = (req, res) => {
     const{id} = req.params;
     const fields = req.body;
     const query = [];
@@ -67,7 +68,7 @@ const updateproductsPatch = (req, res) => {
     values.push(id)
 
     db.query(
-        UPDATE products SET ${query.join(',')}WHERE id = ?,
+        `UPDATE products SET ${query.join(',')}WHERE id = ?`,
         values,
         (err, results) => {
             if(err) {
@@ -98,10 +99,10 @@ const deleteproducts = (req, res) => {
 
 
 module.exports = {
-    getAllTransactions,
-    addTransactions,
-    updateTransactionPut,
-    updateTransactionPatch,
-    deleteTransaction
+    getAllProducts,
+    addProducts,
+    updateProductsPut ,
+    updateProductsPatch ,
+    deleteproducts
 }
 
